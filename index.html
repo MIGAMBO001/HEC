@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HoticeEpiConnect | Disease Surveillance, Health Education &amp; Community Reporting</title>
+    <meta name="application-name" content="HoticeEpiConnect">
+    <meta name="apple-mobile-web-app-title" content="HoticeEpiConnect">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#0d9488">
+    <meta name="description" content="HoticeEpiConnect is a health-tech platform by HOTICE Immunotech for disease surveillance, health education, disease information, and community health reporting.">
+    <meta name="keywords" content="disease surveillance, health education, disease library, community health reporting, microbiology, public health Nigeria, public health Africa, HOTICE Immunotech">
+    <meta name="author" content="HOTICE Immunotech">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="HoticeEpiConnect">
+    <meta property="og:title" content="HoticeEpiConnect | Disease Surveillance, Health Education &amp; Community Reporting">
+    <meta property="og:description" content="A health-tech platform for disease surveillance, health education, disease information, and community health reporting, built by HOTICE Immunotech.">
+    <meta property="og:url" content="https://hoticeepiconnect-4kkt2l.v2.appdeploy.ai/">
+    <meta property="og:image" content="https://hoticeepiconnect-4kkt2l.v2.appdeploy.ai/resources/hotice-branding-image">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="HoticeEpiConnect | Health Intelligence Platform">
+    <meta name="twitter:description" content="A health-tech platform for disease surveillance, health education, disease information, and community health reporting.">
+    <meta name="twitter:image" content="https://hoticeepiconnect-4kkt2l.v2.appdeploy.ai/resources/hotice-branding-image">
+    <link rel="manifest" href="./manifest.json">
+    <link rel="icon" href="./resources/hotice-branding-image">
+    <link rel="apple-touch-icon" href="./resources/hotice-branding-image">
+    <style>
+        #hotice-splash {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            transition: opacity 0.4s ease;
+        }
+        #hotice-splash img {
+            width: 140px;
+            max-width: 60vw;
+            height: auto;
+            margin-bottom: 16px;
+            object-fit: contain;
+        }
+        #hotice-splash .brand {
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #0f172a;
+            letter-spacing: 0.02em;
+        }
+        #hotice-splash .org {
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #0d9488;
+            margin-top: 4px;
+        }
+        #hotice-splash.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="hotice-splash">
+        <img src="./resources/hotice-branding-image" alt="HoticeEpiConnect">
+        <div class="brand">HoticeEpiConnect</div>
+        <div class="org">HOTICE Immunotech</div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+    <script>
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                var splash = document.getElementById('hotice-splash');
+                if (splash) {
+                    splash.classList.add('fade-out');
+                    setTimeout(function () { splash.remove(); }, 450);
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
