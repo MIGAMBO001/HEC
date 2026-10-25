@@ -1,0 +1,108 @@
+# Tests
+
+## Test 1 - Register a new account and submit a health observation [sanity]
+Viewport: desktop
+Covers: registration, password hashing/session creation, health observation submission, profile tracking
+Description: Verifies a new user can register with full name, username, email, phone, and password, then submit a health observation that appears as under review in their profile.
+
+Steps:
+1. Go to Sign Up and register with a unique username, a real full name, a valid email, a valid phone number, and a password meeting the requirements (8+ characters, letters and numbers)
+2. Navigate to Report and submit a health observation with a title, description, location, category, and date
+3. Navigate to Profile
+
+Expected: The submitted observation appears under "My Health Observations" with a status of "Under review".
+
+## Test 2 - Reject registration with an invalid password
+Viewport: mobile
+Covers: password validation guardrail
+Description: Verifies the sign-up form rejects a password that does not meet the minimum requirements.
+
+Steps:
+1. Go to Sign Up
+2. Fill in valid full name, username, email, and phone, but enter a password shorter than 8 characters or missing numbers/letters
+3. Submit the form
+
+Expected: A validation message about password requirements is shown and no account is created.
+
+## Test 3 - Reject duplicate username on signup
+Viewport: desktop
+Covers: username uniqueness guardrail
+Description: Verifies that attempting to register with a username that already exists is rejected.
+
+Steps:
+1. Register a new account with a specific username
+2. Sign out
+3. Attempt to register a second account reusing the same username with a different email and phone
+
+Expected: The second registration is rejected with a message that the username is already taken.
+
+## Test 4 - Sign in, then sign out from the navigation menu
+Viewport: desktop
+Covers: login via credentials, session cookie, sign out
+Description: Verifies an existing user can sign in and then sign out using the button in the navigation menu.
+
+Steps:
+1. Register a new account
+2. Sign out using the Sign Out button in the navigation menu
+3. Sign back in using the same username and password on the Sign In page
+
+Expected: After signing in, the navbar shows the signed-in username; after signing out, it shows Sign In/Sign Up again.
+
+## Test 5 - Submit a community contribution and confirm it is held for review
+Viewport: desktop
+Covers: contribution submission, pending-status moderation gate, public feed exclusion
+Description: Verifies a submitted contribution does not appear in the public Contributions feed until approved.
+
+Steps:
+1. Register and sign in as a new user
+2. Navigate to Contribute and submit a contribution with a title and content
+3. Navigate to Contributions (the public feed)
+
+Expected: The newly submitted contribution does NOT appear in the public feed (since it is pending review), and the user's Profile shows it under "My Contributions" with a "Pending review" status.
+
+## Test 6 - Restrict the Admin panel to professionals and administrators
+Viewport: desktop
+Covers: role-based access boundary
+Description: Verifies a general public user cannot access the review/moderation tools in the Admin panel.
+
+Steps:
+1. Register a new account choosing "General Public" as the role
+2. Navigate to the Admin panel
+
+Expected: An "Access restricted" message is shown instead of the Reports/Contributions/Users tabs.
+
+## Test 7 - Disease Library fungus filter and expanded detail fields
+Viewport: desktop
+Covers: category filtering, expanded disease schema rendering
+Description: Verifies filtering by the Fungus category surfaces Candidiasis and its detail page renders the expanded scientific fields.
+
+Steps:
+1. Navigate to Disease Library
+2. Select the "Fungus" category filter
+3. Open the "Candidiasis" result
+
+Expected: The Candidiasis detail page loads showing Classification, Causative Organism, Microbiology Profile, Epidemiology, Risk Factors, Pathogenesis, Diagnosis Methods, Treatment Overview, and References sections.
+
+## Test 9 - Official HOTICE branding appears across the app
+Viewport: desktop
+Covers: splash screen artwork, favicon, PWA manifest icon, header logo, authentication screen branding
+Description: Verifies the uploaded HOTICE branding image is used consistently instead of the old placeholder icon.
+
+Steps:
+1. Load the app and observe the splash screen while it is visible
+2. Navigate to Sign In
+3. Inspect the page head for the favicon and manifest icon references
+
+Expected: The splash screen, the header logo (visible on Sign In too), the favicon, and the manifest icon all reference the uploaded HOTICE branding image at ./resources/hotice-branding-image, with no remaining reference to the old placeholder icon, splash-logo.jpg, or app-icon.png.
+
+## Test 8 - Dashboard excludes pending observations from the public list
+Viewport: desktop
+Covers: public visibility rule for unverified health signals
+Description: Verifies a freshly submitted (still pending) health observation does not appear in the Dashboard's Recent Health Reports list, since it has not yet been reviewed.
+
+Steps:
+1. Register and sign in as a new user
+2. Submit a health observation titled "Pending Visibility Check Observation"
+3. Navigate to the Dashboard
+
+Expected: "Pending Visibility Check Observation" does NOT appear in the Recent Health Reports list on the Dashboard, since it is still pending review.
