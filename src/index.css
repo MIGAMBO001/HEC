@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: #ffffff;
+  color: #1e293b;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  background-color: #0d9488;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #ffffff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover { background-color: #0f766e; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 0.75rem;
+  border: 1.5px solid #0d9488;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #0f766e;
+  background-color: transparent;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+.btn-secondary:hover { background-color: #f0fdfa; }
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid #f1f5f9;
+  background-color: #ffffff;
+  padding: 1.5rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.section {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  padding: 4rem 1.5rem;
+}
+
+.badge {
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+}
